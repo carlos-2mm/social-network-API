@@ -1,0 +1,36 @@
+{
+  "name": "social-network-api",
+  "version": "1.0.0",
+  "description": "API for a social network web application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "seed": "node/utils/seed.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlos-2mm/social-network-API.git"
+  },
+  "keywords": [
+    "Mongo",
+    "Express",
+    "Mongoose",
+    "JavaScript",
+    "Social"
+  ],
+  "author": "Carlos Macias",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/carlos-2mm/social-network-API/issues"
+  },
+  "homepage": "https://github.com/carlos-2mm/social-network-API#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
