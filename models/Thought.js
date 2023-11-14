@@ -1,4 +1,6 @@
 const { Schema, model } = require("mongoose");
+const reactionSchema = require("./Reaction");
+const dateFormat = require('../utils/dateFormat');
 
 // Schema to create Thought model
 const thoughtSchema = new Schema(
@@ -12,19 +14,21 @@ const thoughtSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
+            get: timestamp => dateFormat(timestamp)
         },
         username: {
             type: String,
             required: 'You need to enter a username'
         },
-        reactions: [Reaction],
+        reactions: [reactionSchema],
     },
     {
         toJSON: {
             virtuals: true,
             getters: true,
         },
-    },
+        id: false,
+    }
 );
 
 // Virtual that retrieves the length of the thought's reaction array
