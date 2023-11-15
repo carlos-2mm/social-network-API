@@ -65,8 +65,8 @@ const reactions = [
 const users = [];
 
 // Function to create email from the names array
-const generateEmail = (name) => {
-  return `${name.split(" ")[0].toLowerCase()}@example.com`;
+const generateEmail = (username) => {
+  return `${username}@example.com`;
 };
 
 // Get a random item given an array
@@ -75,11 +75,8 @@ const getRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
 // Function to generate a random username from the name array
 const getRandomUsername = () =>
   `${getRandom(names).split(" ")[0].toLowerCase()}${Math.floor(
-    Math.random() * 10 + 1
+    Math.random() * 10000
   )}`;
-
-// Get a random email from the names using the create Email function
-const getRandomEmail = () => generateEmail(getRandom(names));
 
 // Function to generate a list of users
 const generateUser = () => {
@@ -87,7 +84,7 @@ const generateUser = () => {
 
   for (let i = 0; i < 20; i += 1) {
     const username = getRandomUsername();
-    const email = getRandomEmail();
+    const email = generateEmail(username);
     const user = {
       username,
       email,
