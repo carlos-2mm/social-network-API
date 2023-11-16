@@ -75,6 +75,16 @@ module.exports = {
                 return res.status(404).json({ message: 'No such thought exists' });
             }
 
+            const user = await User.findOneAndUpdate(
+                { thoughts: req.params.thoughtId },
+                { $pull: { thoughts: req.params.thoughtId } },
+                { runValidators: true, new: true }
+            );
+
+            if (!user) {
+                return res.status(404).json({ message: 'No user found with this ID!' });
+            }
+
             res.json({ message: 'Thought successfully deleted' });
         } catch (err) {
             console.error(err);
