@@ -28,7 +28,7 @@ connection.once("open", async () => {
 
   // Generate users and thoughts data
   const users = generateUser();
-  const thoughts = generateThoughts(20);
+  const thoughts = generateThoughts(10);
 
   // Insert generated user and thought data into their respective collections
   await User.collection.insertMany(users);
