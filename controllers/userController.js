@@ -2,7 +2,7 @@ const { User } = require('../models');
 
 module.exports = {
   // Get all users
-  async getAllUsers(req, res) {
+  async getUsers(req, res) {
     try {
       const users = await User.find();
       res.json(users);
@@ -47,7 +47,7 @@ module.exports = {
     try {
       const user = await User.findOneAndUpdate(
         { _id: req.params.userId },
-        { $set: { user: req.body } },
+        { $set:req.body },
         { runValidators: true, new: true }
       );
 
@@ -86,7 +86,7 @@ module.exports = {
     try {
       const user = await User.findOneAndUpdate(
         { _id: req.params.userId },
-        { $addToSet: { friends: req.body } },
+        { $addToSet: { friends: req.params.friendId } },
         { runValidators: true, new: true }
       );
 
